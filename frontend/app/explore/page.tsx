@@ -36,7 +36,7 @@ const ExplorePage = (): JSX.Element => {
             Explore uploaded data in {currentBrain.name}
           </h1>
           <h2 className="opacity-50">
-            View or delete stored data used by your brain
+            View or delete stored data used by in your Focus
           </h2>
         </div>
         {isPending ? (

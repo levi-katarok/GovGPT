@@ -43,7 +43,7 @@ const Hero = (): JSX.Element => {
           Get a Second Brain with <span className="text-primary">Quivr</span>
         </h1>
         <p className="text-base max-w-sm text-gray-500 mb-5 sm:mb-10">
-          Quivr is your second brain in the cloud, designed to easily store and
+        GovGPT is your second brain in the cloud, designed to easily store and
           retrieve unstructured information.
         </p>
         <Link href={"/login"}>

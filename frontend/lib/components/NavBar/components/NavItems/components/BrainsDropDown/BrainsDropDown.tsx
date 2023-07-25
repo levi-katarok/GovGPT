@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBrain } from "react-icons/fa";
+import { FaSistrix } from "react-icons/fa";
 import { MdCheck } from "react-icons/md";
 
 import Field from "@/lib/components/ui/Field";
@@ -24,7 +24,7 @@ export const BrainsDropDown = (): JSX.Element => {
               type="button"
               className="flex items-center focus:outline-none"
             >
-              <FaBrain className="w-6 h-6" />
+              <FaSistrix className="w-6 h-6" />
             </button>
           }
           ActionTrigger={<AddBrainModal />}
@@ -33,7 +33,7 @@ export const BrainsDropDown = (): JSX.Element => {
           <div>
             <Field
               name="brainsearch"
-              placeholder="Search for a brain"
+              placeholder="Search for a Focus"
               autoFocus
               autoComplete="off"
               value={searchQuery}

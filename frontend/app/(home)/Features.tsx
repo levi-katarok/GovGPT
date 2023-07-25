@@ -21,22 +21,22 @@ const Features = (): JSX.Element => {
         <Feature
           icon={<GiBrain className="text-7xl w-full" />}
           title="Two brains is better than one"
-          desc="Quivr is your second brain in the cloud, designed to easily store and retrieve unstructured information."
+          desc="GovGPT is your second brain in the cloud, designed to easily store and retrieve unstructured information."
         />
         <Feature
           icon={<GiDatabase className="text-7xl w-full" />}
           title="Store any kind of data"
-          desc="Quivr can handle almost any type of data you throw at it. Text, images, code snippets, we've got you covered."
+          desc="GovGPT can handle almost any type of data you throw at it. Text, images, code snippets, we've got you covered."
         />
         <Feature
           icon={<GiArtificialIntelligence className="text-7xl w-full" />}
           title="Get a Fast and Consistent Brain"
-          desc="Quivr is your second brain in the cloud, designed to easily store and retrieve unstructured information."
+          desc="GovGPT is your second brain in the cloud, designed to easily store and retrieve unstructured information."
         />
         <Feature
           icon={<GiFastArrow className="text-7xl w-full" />}
           title="Fast and Efficient"
-          desc="Designed with speed and efficiency at its core. Quivr ensures rapid access to your data."
+          desc="Designed with speed and efficiency at its core. GovGPT ensures rapid access to your data."
         />
         <Feature
           icon={<GiLockedDoor className="text-7xl w-full" />}
@@ -46,7 +46,7 @@ const Features = (): JSX.Element => {
         <Feature
           icon={<GiOpenBook className="text-7xl w-full" />}
           title="Open source"
-          desc="Freedom is beautiful, so is Quivr. Open source and free to use."
+          desc="Freedom is beautiful, so is GovGPT. Open source and free to use."
         />
       </div>
     </section>

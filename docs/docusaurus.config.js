@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Quivr 🧠',
+  title: 'GovGPT 🧠',
   tagline: 'Your Generative AI second brain',
   favicon: 'img/quivr-logo.ico',
 

@@ -24,7 +24,7 @@ export const useBrainUsers = (brainId: string) => {
     } catch {
       publish({
         variant: "danger",
-        text: "An error occurred while fetching brain users",
+        text: "An error occurred while fetching Focus users",
       });
     } finally {
       setFetchingBrainUsers(false);

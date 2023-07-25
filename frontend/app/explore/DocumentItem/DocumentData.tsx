@@ -50,7 +50,7 @@ const DocumentData = ({ documentName }: DocumentDataProps): JSX.Element => {
                   {doc.replaceAll("_", " ")}
                 </p>
                 <span className="break-words my-auto">
-                  {documents[0][doc] || "Not Available"}
+                {JSON.stringify(documents[0][doc]) || "Not Available"}
                 </span>
               </div>
             );

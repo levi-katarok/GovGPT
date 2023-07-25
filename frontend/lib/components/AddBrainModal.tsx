@@ -56,12 +56,12 @@ export const AddBrainModal = (): JSX.Element => {
     <Modal
       Trigger={
         <Button variant={"secondary"}>
-          Add New Brain
+          Add New Focus
           <MdAdd className="text-xl" />
         </Button>
       }
-      title="Add Brain"
-      desc="Add a new brain"
+      title="Add Focus"
+      desc="Add a new Focus"
       isOpen={isShareModalOpen}
       setOpen={setIsShareModalOpen}
       CloseTrigger={<div />}

@@ -13,7 +13,7 @@ logger = get_logger(__name__)
 
 class Brain(BaseModel):
     id: Optional[UUID] = None
-    name: Optional[str] = "Default brain"
+    name: Optional[str] = "Default Focus"
     status: Optional[str] = "public"
     model: Optional[str] = "gpt-3.5-turbo-0613"
     temperature: Optional[float] = 0.0
@@ -284,7 +284,7 @@ def get_default_user_brain(user: User):
 
     default_brain_id = response.data[0]["brain_id"] if response.data else None
 
-    logger.info(f"Default brain id: {default_brain_id}")
+    logger.info(f"Default Focus id: {default_brain_id}")
 
     if default_brain_id:
         brain_response = (
