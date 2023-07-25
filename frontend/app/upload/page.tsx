@@ -28,7 +28,7 @@ const UploadPage = (): JSX.Element => {
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative max-w-md">
           <strong className="font-bold mr-1">Oh no!</strong>
           <span className="block sm:inline">
-            {"You need to select a brain first. 🧠💡🥲"}
+            {"You need to select a Focus first. 💡🥲"}
           </span>
         </div>
       </div>

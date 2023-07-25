@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaBrain } from "react-icons/fa";
+import { FaSistrix } from "react-icons/fa";
 
 import { MinimalBrainForUser } from "@/lib/context/BrainProvider/types";
 import { cn } from "@/lib/utils";
@@ -30,7 +30,7 @@ export const BrainListItem = ({ brain }: BrainsListItemProps): JSX.Element => {
         key={brain.id}
       >
         <div className="flex items-center gap-2">
-          <FaBrain className="text-xl" />
+          <FaSistrix className="text-xl" />
           <p>{brain.name}</p>
         </div>
       </Link>

@@ -22,7 +22,7 @@ const ExplorePage = (): JSX.Element => {
     return (
       <div className="flex flex-col items-center justify-center mt-10 gap-1">
         <p className="text-center">
-          {"You need to select a brain first. 🧠💡🥲"}
+          {"You need to select a Focus first. 💡🥲"}
         </p>
       </div>
     );

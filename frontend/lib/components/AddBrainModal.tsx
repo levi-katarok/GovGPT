@@ -1,33 +1,78 @@
+/* eslint-disable max-lines */
 import axios from "axios";
-import { FormEvent, useState } from "react";
-import { MdAdd } from "react-icons/md";
+import { FormEvent, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
-import Button from "@/lib/components/ui/Button";
-import Field from "@/lib/components/ui/Field";
-import { Modal } from "@/lib/components/ui/Modal";
+import { useBrainApi } from "@/lib/api/brain/useBrainApi";
+import { useBrainConfig } from "@/lib/context/BrainConfigProvider";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
+import { defineMaxTokens } from "@/lib/helpers/defineMexTokens";
 import { useToast } from "@/lib/hooks";
 
-export const AddBrainModal = (): JSX.Element => {
-  const [newBrainName, setNewBrainName] = useState("");
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const useAddBrainModal = () => {
   const [isPending, setIsPending] = useState(false);
   const { publish } = useToast();
   const { createBrain } = useBrainContext();
+  const { setAsDefaultBrain } = useBrainApi();
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const { config } = useBrainConfig();
+  const defaultValues = {
+    ...config,
+    name: "",
+    description: "",
+    setDefault: false,
+  };
+
+  const { register, getValues, reset, watch, setValue } = useForm({
+    defaultValues,
+  });
+
+  const openAiKey = watch("openAiKey");
+  const model = watch("model");
+  const temperature = watch("temperature");
+  const maxTokens = watch("maxTokens");
+
+  useEffect(() => {
+    setValue("maxTokens", Math.min(maxTokens, defineMaxTokens(model)));
+  }, [maxTokens, model, setValue]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (newBrainName.trim() === "" || isPending) {
+    const { name, description, setDefault } = getValues();
+
+    if (name.trim() === "" || isPending) {
       return;
     }
+
     try {
       setIsPending(true);
-      await createBrain(newBrainName);
-      setNewBrainName("");
+      const createdBrainId = await createBrain({
+        name,
+        description,
+        max_tokens: maxTokens,
+        model,
+        openai_api_key: openAiKey,
+        temperature,
+      });
+
+      if (setDefault) {
+        if (createdBrainId === undefined) {
+          publish({
+            variant: "danger",
+            text: "Error occurred while creating a Focus",
+          });
+
+          return;
+        }
+        await setAsDefaultBrain(createdBrainId);
+      }
+
       setIsShareModalOpen(false);
+      reset(defaultValues);
       publish({
         variant: "success",
-        text: "Brain created successfully",
+        text: "Focus created successfully",
       });
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.status === 429) {
@@ -52,39 +97,15 @@ export const AddBrainModal = (): JSX.Element => {
     }
   };
 
-  return (
-    <Modal
-      Trigger={
-        <Button variant={"secondary"}>
-          Add New Focus
-          <MdAdd className="text-xl" />
-        </Button>
-      }
-      title="Add Focus"
-      desc="Add a new Focus"
-      isOpen={isShareModalOpen}
-      setOpen={setIsShareModalOpen}
-      CloseTrigger={<div />}
-    >
-      <form
-        onSubmit={(e) => void handleSubmit(e)}
-        className="my-10 flex items-center gap-2"
-      >
-        <Field
-          name="brainname"
-          label="Enter a brain name"
-          autoFocus
-          placeholder="E.g. History notes"
-          autoComplete="off"
-          value={newBrainName}
-          onChange={(e) => setNewBrainName(e.currentTarget.value)}
-          className="flex-1"
-        />
-        <Button isLoading={isPending} className="self-end" type="submit">
-          Create
-          <MdAdd className="text-xl" />
-        </Button>
-      </form>
-    </Modal>
-  );
+  return {
+    isShareModalOpen,
+    setIsShareModalOpen,
+    handleSubmit,
+    register,
+    openAiKey,
+    model,
+    temperature,
+    maxTokens,
+    isPending,
+  };
 };
