@@ -113,7 +113,7 @@ async def create_brain_endpoint(
     brain.create_brain()  # pyright: ignore reportPrivateUsage=none
     default_brain = get_default_user_brain(current_user)
     if default_brain:
-        logger.info(f"Default Focus already exists for user {current_user.id}")
+        logger.info(f"Default Collection already exists for user {current_user.id}")
         brain.create_brain_user(  # pyright: ignore reportPrivateUsage=none
             user_id=current_user.id, rights="Owner", default_brain=False
         )
@@ -179,4 +179,4 @@ async def set_as_default_brain_endpoint(
 
     brain.set_as_default_brain_for_user(user)
 
-    return {"message": f"Focus {brain_id} has been set as default Focus."}
+    return {"message": f"Collection {brain_id} has been set as default Collection."}

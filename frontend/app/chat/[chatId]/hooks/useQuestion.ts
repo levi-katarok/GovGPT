@@ -72,7 +72,7 @@ export const useQuestion = (): UseChatService => {
     chatQuestion: ChatQuestion
   ): Promise<void> => {
     if (currentBrain?.id === undefined) {
-      throw new Error("No current Focus");
+      throw new Error("No current Collection");
     }
     const headers = {
       "Content-Type": "application/json",

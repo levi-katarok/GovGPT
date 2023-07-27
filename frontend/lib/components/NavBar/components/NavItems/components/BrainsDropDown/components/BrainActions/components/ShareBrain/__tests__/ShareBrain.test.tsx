@@ -97,7 +97,7 @@ describe("ShareBrain", () => {
     );
     const shareButton = getByTestId("share-brain-button");
     fireEvent.click(shareButton);
-    expect(getByText("Share brain test")).toBeDefined();
+    expect(getByText("Share Collection test")).toBeDefined();
   });
 
   it('shoud add new user row when "Add new user" button is clicked and only where there is no empty field', async () => {

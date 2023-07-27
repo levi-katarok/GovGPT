@@ -103,7 +103,7 @@ export const useFileUploader = () => {
       setFiles([]);
     } else {
       publish({
-        text: "Please, select or create a Focus to upload a file",
+        text: "Please, select or create a Collection to upload a file",
         variant: "warning",
       });
     }

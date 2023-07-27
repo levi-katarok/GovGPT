@@ -6,12 +6,12 @@ export const Logo = (): JSX.Element => {
     <Link href={"/"} className="flex items-center gap-4">
       <Image
         className="rounded-full"
-        src={"/logo.png"}
+        src={"/Full Logo - Light Name.png"}
         alt="Quivr Logo"
-        width={48}
-        height={48}
+        width={100}
+        height={100}
       />
-      <h1 className="font-bold">GovGPT</h1>
+      {/* <h1 className="font-bold">GovGPT</h1> */}
     </Link>
   );
 };

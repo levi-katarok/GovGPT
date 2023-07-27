@@ -13,7 +13,7 @@ export const BrainSearchBar = ({
     <div className="m-2">
       <Field
         name="brainsearch"
-        placeholder="Search for a Focus"
+        placeholder="Search for a Collection"
         autoFocus
         autoComplete="off"
         value={searchQuery}

@@ -8,7 +8,6 @@ import { useSupabase } from "@/lib/context/SupabaseProvider";
 import { cn } from "@/lib/utils";
 
 import { AuthButtons } from "./components/AuthButtons";
-import { BrainManagementButton } from "./components/BrainManagementButton";
 import { BrainsDropDown } from "./components/BrainsDropDown";
 import { DarkModeToggle } from "./components/DarkModeToggle";
 import { NavLink } from "./components/NavLink";
@@ -47,19 +46,19 @@ export const NavItems = ({
         </>
       ) : (
         <>
-          <NavLink setOpen={setOpen} to="https://github.com/StanGirard/quivr">
+          {/* <NavLink setOpen={setOpen} to="https://github.com/StanGirard/quivr">
             Github
           </NavLink>
           <NavLink setOpen={setOpen} to="https://discord.gg/HUpRgp2HG8">
             Discord
-          </NavLink>
+          </NavLink> */}
         </>
       )}
       <div className="flex sm:flex-1 sm:justify-end flex-col items-center justify-center sm:flex-row gap-5 sm:gap-2">
         {isUserLoggedIn && (
           <>
             <BrainsDropDown />
-            <BrainManagementButton />
+            {/* <BrainManagementButton /> */}
             <Link aria-label="account" className="" href={"/user"}>
               <MdPerson className="text-2xl" />
             </Link>

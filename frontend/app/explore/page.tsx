@@ -22,7 +22,7 @@ const ExplorePage = (): JSX.Element => {
     return (
       <div className="flex flex-col items-center justify-center mt-10 gap-1">
         <p className="text-center">
-          {"You need to select a Focus first. 💡🥲"}
+          {"You need to select a Collection first. 💡🥲"}
         </p>
       </div>
     );
@@ -36,7 +36,7 @@ const ExplorePage = (): JSX.Element => {
             Explore uploaded data in {currentBrain.name}
           </h1>
           <h2 className="opacity-50">
-            View or delete stored data used by in your Focus
+            View or delete stored data used by in your Collection
           </h2>
         </div>
         {isPending ? (

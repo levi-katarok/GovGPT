@@ -26,12 +26,12 @@ export const ChatMessages = (): JSX.Element => {
             <React.Fragment key={message_id}>
               <ChatMessage
                 key={`user-${message_id}`}
-                speaker={"user"}
+                speaker={"query"}
                 text={user_message}
               />
               <ChatMessage
                 key={`assistant-${message_id}`}
-                speaker={"assistant"}
+                speaker={"GovGPT"}
                 text={assistant}
               />
             </React.Fragment>

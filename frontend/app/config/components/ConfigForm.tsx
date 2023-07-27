@@ -3,11 +3,8 @@
 
 import { useRouter } from "next/navigation";
 
-import Button from "@/lib/components/ui/Button";
 
 import { useConfig } from "../hooks/useConfig";
-import { BackendConfig } from "./BackendConfig/BackendConfig";
-import { ModelConfig } from "./ModelConfig";
 import { UserAccountSection } from "./UserAccountSection";
 
 export const ConfigForm = (): JSX.Element => {
@@ -37,15 +34,15 @@ export const ConfigForm = (): JSX.Element => {
       className="flex flex-col gap-5 py-5 w-full max-w-xl"
       onSubmit={handleSubmit(handleDoneClick)}
     >
-      <ModelConfig
+      {/* <ModelConfig
         register={register}
         model={model}
         openAiKey={openAiKey}
         temperature={temperature}
         maxTokens={maxTokens}
-      />
-      <BackendConfig register={register} />
-      <div className="flex justify-between">
+      /> */}
+      {/* <BackendConfig register={register} /> */}
+      {/* <div className="flex justify-between">
         <Button
           variant="danger"
           className="self-end"
@@ -57,7 +54,7 @@ export const ConfigForm = (): JSX.Element => {
         <Button variant="secondary" className="self-end">
           Done
         </Button>
-      </div>
+      </div> */}
       <UserAccountSection />
     </form>
   );

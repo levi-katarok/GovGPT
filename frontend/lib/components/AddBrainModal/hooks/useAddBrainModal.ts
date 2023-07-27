@@ -72,7 +72,7 @@ export const useAddBrainModal = () => {
       reset(defaultValues);
       publish({
         variant: "success",
-        text: "Focus created successfully",
+        text: "Collection created successfully",
       });
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.status === 429) {

@@ -47,7 +47,7 @@ export const ShareBrain = ({
         </Button>
       }
       CloseTrigger={<div />}
-      title={`Share brain ${name}`}
+      title={`Share Collection ${name}`}
       isOpen={isShareModalOpen}
       setOpen={setIsShareModalOpen}
     >

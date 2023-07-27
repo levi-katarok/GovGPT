@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 import { BrainRoleType } from "@/lib/components/NavBar/components/NavItems/components/BrainsDropDown/components/BrainActions/types";
@@ -28,7 +29,7 @@ const UploadPage = (): JSX.Element => {
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative max-w-md">
           <strong className="font-bold mr-1">Oh no!</strong>
           <span className="block sm:inline">
-            {"You need to select a Focus first. 💡🥲"}
+            {"You need to select a Collection first. 💡🥲"}
           </span>
         </div>
       </div>
@@ -54,6 +55,13 @@ const UploadPage = (): JSX.Element => {
 
   return (
     <main className="pt-10">
+      <Image
+        className="rounded-full"
+        src={"/Full Logo - Light Name.png"}
+        alt="GovGPT Logo"
+        width={200}
+        height={200}
+      />
       <PageHeading
         title={`Upload Knowledge to ${currentBrain.name}`}
         subtitle="Text, document, spreadsheet, presentation, audio, video, and URLs supported"

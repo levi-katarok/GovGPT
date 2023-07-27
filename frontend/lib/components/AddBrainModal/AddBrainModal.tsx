@@ -27,12 +27,12 @@ export const AddBrainModal = (): JSX.Element => {
     <Modal
       Trigger={
         <Button variant={"secondary"}>
-          Add New Focus
+          Add New Collection
           <MdAdd className="text-xl" />
         </Button>
       }
-      title="Add Focus"
-      desc="Create a new Focus to start aggregating content"
+      title="Add Collection"
+      desc="Create a new Collection to start aggregating content"
       isOpen={isShareModalOpen}
       setOpen={setIsShareModalOpen}
       CloseTrigger={<div />}
@@ -42,7 +42,7 @@ export const AddBrainModal = (): JSX.Element => {
         className="my-10 flex flex-col items-center gap-2"
       >
         <Field
-          label="Enter a Focus name"
+          label="Enter a Collection name"
           autoFocus
           placeholder="E.g. History notes"
           autoComplete="off"
@@ -51,9 +51,9 @@ export const AddBrainModal = (): JSX.Element => {
         />
 
         <TextArea
-          label="Enter a Focus description"
+          label="Enter a Collection description"
           autoFocus
-          placeholder="My new Focus is about..."
+          placeholder="My new Collection is about..."
           autoComplete="off"
           className="flex-1 m-3"
           {...register("description")}
@@ -115,7 +115,7 @@ export const AddBrainModal = (): JSX.Element => {
         </fieldset>
         <div className="flex flex-row justify-start w-full mt-4">
           <label className="flex items-center">
-            <span className="mr-2 text-gray-700">Set as default Focus</span>
+            <span className="mr-2 text-gray-700">Set as default Collection</span>
             <input
               type="checkbox"
               {...register("setDefault")}
