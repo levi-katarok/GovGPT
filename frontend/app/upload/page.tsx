@@ -55,6 +55,7 @@ const UploadPage = (): JSX.Element => {
 
   return (
     <main className="pt-10">
+       <div className="flex flex-col items-center justify-center px-5">
       <Image
         className="rounded-full"
         src={"/Full Logo - Light Name.png"}
@@ -62,6 +63,7 @@ const UploadPage = (): JSX.Element => {
         width={200}
         height={200}
       />
+      </div>
       <PageHeading
         title={`Upload Knowledge to ${currentBrain.name}`}
         subtitle="Text, document, spreadsheet, presentation, audio, video, and URLs supported"

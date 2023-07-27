@@ -8,8 +8,8 @@ export const Logo = (): JSX.Element => {
         className="rounded-full"
         src={"/Full Logo - Light Name.png"}
         alt="Quivr Logo"
-        width={100}
-        height={100}
+        width={90}
+        height={55}
       />
       {/* <h1 className="font-bold">GovGPT</h1> */}
     </Link>
