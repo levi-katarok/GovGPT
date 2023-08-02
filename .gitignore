@@ -1,5 +1,6 @@
 secondbrain/
 .env
+.env_copy
 .streamlit/secrets.toml
 **/*.pyc
 toto.txt
@@ -58,3 +59,13 @@ backend/core/local_models/*
 
 ## scripts
 .migration_info
+
+## kubenetes secrets 
+.backend-configmap.yml
+kubernetes/backend-configmap-old.yml
+kubernetes/backend-configmap.yml
+kubernetes/backend-core-deployment.yml
+kubernetes/dns-ingress.yml
+kubernetes/frontend-deployment.yml
+kubernetes/frontend-configmap.yml
+.migration_info_old

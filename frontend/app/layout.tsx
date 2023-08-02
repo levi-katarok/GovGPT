@@ -14,7 +14,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "GovGPT",
+  title: "GovGPT (Alpha)",
   description:
     "GovGPT is collection of documents brain in the cloud, designed to easily store and retrieve unstructured information.",
 };

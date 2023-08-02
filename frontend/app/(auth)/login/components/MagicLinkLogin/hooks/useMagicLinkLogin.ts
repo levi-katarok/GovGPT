@@ -29,7 +29,7 @@ export const useMagicLinkLogin = ({
     }
 
     setIsPending(true);
-
+    console.log("window.location.hostname", window.location.hostname)
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
