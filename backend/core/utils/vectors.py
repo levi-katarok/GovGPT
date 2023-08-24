@@ -16,14 +16,27 @@ class Neurons(BaseModel):
     settings = BrainSettings()  # pyright: ignore reportPrivateUsage=none
 
     def create_vector(self, doc, user_openai_api_key=None):
-        logger.info("Creating vector for document")
-        logger.info(f"Document: {doc}")
+        logger.info("adding new vector for document")
         if user_openai_api_key:
             self.commons["documents_vector_store"]._embedding = OpenAIEmbeddings(
                 openai_api_key=user_openai_api_key
             )  # pyright: ignore reportPrivateUsage=none
         try:
             sids = self.commons["documents_vector_store"].add_documents([doc])
+            if sids and len(sids) > 0:
+                return sids
+
+        except Exception as e:
+            logger.error(f"Error creating vector for document {e}")
+
+    def create_vectors(self, doc_array, user_openai_api_key=None):
+        logger.info("adding new vector for document")
+        if user_openai_api_key:
+            self.commons["documents_vector_store"]._embedding = OpenAIEmbeddings(
+                openai_api_key=user_openai_api_key
+            )  # pyright: ignore reportPrivateUsage=none
+        try:
+            sids = self.commons["documents_vector_store"].add_documents(doc_array)
             if sids and len(sids) > 0:
                 return sids
 
@@ -115,6 +128,5 @@ def get_unique_files_from_vector_ids(vectors_ids: List[str]):
         vectors_responses = [future.result() for future in futures]
 
     documents = [item for sublist in vectors_responses for item in sublist]
-    print("document", documents)
     unique_files = [dict(t) for t in set(tuple(d.items()) for d in documents)]
     return unique_files

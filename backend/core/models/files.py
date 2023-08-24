@@ -77,8 +77,6 @@ class File(BaseModel):
             loader = loader_class(tmp_file.name)
             documents = loader.load()
 
-            print("documents", documents)
-
         os.remove(tmp_file.name)
 
         text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
@@ -113,7 +111,7 @@ class File(BaseModel):
         self.set_file_vectors_ids()
 
         print("file_sha1", self.file_sha1)
-        print("vectors_ids", self.vectors_ids)
+
         print(
             "len(vectors_ids)",
             len(self.vectors_ids),  # pyright: ignore reportPrivateUsage=none
@@ -143,7 +141,6 @@ class File(BaseModel):
             .filter("file_sha1", "eq", self.file_sha1)
             .execute()
         )
-        print("response.data", response.data)
         if len(response.data) == 0:
             return False
 

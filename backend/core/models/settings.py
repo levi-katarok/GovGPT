@@ -5,6 +5,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from pydantic import BaseSettings
 from supabase.client import Client, create_client
 from vectorstore.supabase import SupabaseVectorStore
+# from qdrant_client import QdrantClient
 
 
 class BrainRateLimiting(BaseSettings):
@@ -19,6 +20,8 @@ class BrainSettings(BaseSettings):
     supabase_service_key: str
     resend_api_key: str = "null"
     resend_email_address: str = "brain@mail.quivr.app"
+    qdrant_url: str
+    qdrant_api_key: str
 
 
 class LLMSettings(BaseSettings):
@@ -34,6 +37,11 @@ def common_dependencies() -> dict:
     supabase_client: Client = create_client(
         settings.supabase_url, settings.supabase_service_key
     )
+
+    # qdrant_client: QdrantClient(
+    #     url=settings.qdrant_url,
+    #     api_key=settings.qdrant_api_key
+    # )
     documents_vector_store = SupabaseVectorStore(
         supabase_client, embeddings, table_name="vectors"
     )
@@ -43,6 +51,7 @@ def common_dependencies() -> dict:
 
     return {
         "supabase": supabase_client,
+        # "qdrant": qdrant_client,
         "embeddings": embeddings,
         "documents_vector_store": documents_vector_store,
         "summaries_vector_store": summaries_vector_store,

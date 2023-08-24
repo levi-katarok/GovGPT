@@ -5,6 +5,8 @@ from fastapi import APIRouter, Depends, Query
 from models.brains import Brain
 from models.settings import common_dependencies
 from models.users import User
+from logger import get_logger
+import time
 
 from routes.authorizations.brain_authorization import (
     RoleEnum,
@@ -13,6 +15,7 @@ from routes.authorizations.brain_authorization import (
 )
 
 explore_router = APIRouter()
+logger = get_logger(__name__)
 
 
 @explore_router.get("/explore/", dependencies=[Depends(AuthBearer())], tags=["Explore"])
@@ -45,8 +48,16 @@ async def delete_endpoint(
     """
     Delete a specific user file by file name.
     """
+    start_time = time.time()  # Record start time
     brain = Brain(id=brain_id)
+
+    elapsed_time = time.time() - start_time  # Calculate elapsed time
+    # Log the authorization information
+    logger.info(f"brain retrieval function took {elapsed_time:.6f} seconds.")
+
     brain.delete_file_from_brain(file_name)
+    elapsed_time = time.time() - start_time  # Calculate elapsed time
+    logger.info(f"brain delete function took {elapsed_time:.6f} seconds.")
 
     return {
         "message": f"{file_name} of brain {brain_id} has been deleted by user {current_user.email}."

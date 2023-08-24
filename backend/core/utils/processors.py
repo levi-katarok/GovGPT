@@ -13,6 +13,10 @@ from parsers.pdf import process_pdf
 from parsers.powerpoint import process_powerpoint
 from parsers.txt import process_txt
 
+from logger import get_logger
+
+logger = get_logger(__name__)
+
 file_processors = {
     ".txt": process_txt,
     ".csv": process_csv,
@@ -48,7 +52,7 @@ async def filter_file(
 ):
     await file.compute_file_sha1()
 
-    print("file sha1", file.file_sha1)
+    logger.info(f"Computing documents from file {file.file_name}")
     file_exists = file.file_already_exists()
     file_exists_in_brain = file.file_already_exists_in_brain(brain_id)
 
